@@ -15,14 +15,12 @@ namespace XUnit_CrudDemo
         //everthing well--insert
 
         [Fact]
-        public void AddCountry_NullCountry()
+        public void AddCountry_NullCountryObject()
         {
             //Arrange
             CountryAddRequest _request = null;
 
-           
-
-            //aSSERT
+           //aSSERT
             Assert.Throws<ArgumentNullException>(() => //Act
                                                        _service.AddCountry(_request));
         }
@@ -36,6 +34,7 @@ namespace XUnit_CrudDemo
             };
         Assert.Throws<ArgumentException> (()=> _service.AddCountry(_request));
         }
+
         [Fact]
         public void AddCountry_ProperCountryName()
         {

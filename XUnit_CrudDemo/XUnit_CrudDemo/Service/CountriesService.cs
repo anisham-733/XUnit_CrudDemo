@@ -12,6 +12,18 @@ namespace XUnit_CrudDemo.Service
         }
         public CountryResponse AddCountry(CountryAddRequest countryAddRequest)
         {
+            //Validation 1
+            if (countryAddRequest == null)
+            {
+                throw new ArgumentNullException(nameof(countryAddRequest));
+            }
+            //Validation 2
+            if (countryAddRequest.CountryName == null)
+            {
+                throw new ArgumentException(nameof(countryAddRequest.CountryName));
+            }
+
+            //Validation 3 can also be like chekcing for duplicate country names
             //dto to domain
             Country country = countryAddRequest.toCountry();
 
